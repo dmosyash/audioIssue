@@ -8,10 +8,9 @@
  * Controller of the audioApp
  */
 angular.module('audioApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function (ngAudio) {
+    var load = function () {
+        var audio = ngAudio.load('https://s3-ap-southeast-1.amazonaws.com/lgwarehouse/media/resources/slide/4486/Water-chemical-properties-17.mp3');
+        audio.play();
+    }();
   });
