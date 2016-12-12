@@ -35,15 +35,9 @@ angular.module('audioApp')
         },1000);
     }();
 
-    $scope.$watch(function () {
-        for (var i = 0; i < $scope.slides.length; i++) {
-            if ($scope.slides[i].active) {
-                return i;
-            }
-        }
-    }, function (currentIndex, previousIndex) {
+    $scope.$watch('active', function (currentIndex, previousIndex) {
         $timeout.cancel(play_timeout);
-        audio_duration = 1000 * audios[currentIndex].duration;
+        var audio_duration = 1000 * audios[currentIndex].duration;
         audios[previousIndex].stop();
         play_timeout = $timeout(function () {
             audios[currentIndex].play();
