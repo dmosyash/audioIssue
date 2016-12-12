@@ -39,15 +39,19 @@ angular.module('audioApp')
         }
         if(audios[previousIndex] !== undefined) {
             audios[previousIndex].stop();
+            play_timeout = $timeout(function () {
+                audios[currentIndex].play();
+                // console.log($scope.interval);
+            }, 500);
+            $scope.interval = 10000;
+        } else {
+            $scope.interval = 0;
         }
-        play_timeout = $timeout(function () {
-            audios[currentIndex].play();
-            // console.log($scope.interval);
-        }, 500);
-        $scope.interval = parseInt(10000);
     });
 
-    $scope.play = function () {
-        audio.play();
+    $scope.play = function (str) {
+        console.log(str);
+        audios[0].play();
+        $scope.interval = 10000;
     }
   });

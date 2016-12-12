@@ -1,11 +1,14 @@
-  <div style="height: 305px">
-    <div uib-carousel active="active" interval="interval" no-wrap="noWrapSlides">
-      <div uib-slide ng-repeat="slide in slides" index="$index">
-        <img ng-src="{{slide.image}}" height="300px" style="margin:auto;">
+  <div style="height: 335px">
+    <div uib-carousel active="active" interval="interval" no-wrap="noWrapSlides" ng-click="play('carousal div')">
+      <div uib-slide ng-repeat="slide in slides" index="$index" ng-click="play('slide div')">
+        <label style="position: absolute;left: 300px;top: 150px;z-index: 1;font-size: 18px;
+  font-weight: bold;" ng-click="play('label')">Start</label>
+        <img ng-src="{{slide.image}}" height="300px" style="margin:auto;" ng-click="play('image')">
         <div class="carousel-caption">
           <h4>Slide {{slide.id}}</h4>
           <p>{{slide.text}}</p>
         </div>
       </div>
     </div>
+    <button type="button" ng-click="play('button')">Click</button>
   </div>
