@@ -1,8 +1,13 @@
-<div class="jumbotron">
+<div>
   <h1>'Allo, 'Allo!</h1>
   <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman" ng-click="play()">
-    <br>
-    Always a pleasure scaffolding your apps.
+    <carousel interval="myInterval">
+        <slide ng-repeat="slide in slides" active="slide.active">
+          <img ng-src="{{slide.image}}" style="margin:auto;" index="$index">
+          <div class="carousel-caption">
+            <h4>Slide {{$index}}</h4>
+          </div>
+        </slide>
+    </carousel>
   </p>
 </div>
